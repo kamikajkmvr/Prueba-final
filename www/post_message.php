@@ -10,10 +10,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         'created_at' => $created_at
     ];
 
-    $messages = file_exists('messages.txt') ? file('messages.txt', FILE_IGNORE_NEW_LINES) : [];
-    array_unshift($messages, json_encode($newMessage));
-    file_put_contents('messages.txt', implode("\n", $messages));
+    $messages = file_exists('messages.txt') ? file_get_contents('messages.txt') : '';
+    $messagesArray = json_decode($messages, true) ?: [];
+    array_unshift($messagesArray, $newMessage);
 
-    header("Location: index.php"); 
+    file_put_contents('messages.txt', json_encode($messagesArray));
+
+    header("Location: index.html"); 
 }
 ?>
