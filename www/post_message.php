@@ -16,6 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     file_put_contents('messages.txt', json_encode($messagesArray));
 
-    header("Location: index.html"); 
+    header("Location: index.html"); // Redirigir a la página principal
 }
 ?>

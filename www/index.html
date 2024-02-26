@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Foro de Animales</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Archivo de estilos externo -->
+</head>
+<body>
+
+<header>
+    <h1>Foro de Animales</h1>
+</header>
+
+<!-- Formulario para agregar mensajes -->
+<form action="post_message.php" method="post">
+    <label for="username">Nombre de usuario:</label>
+    <input type="text" name="username" required>
+    <br>
+    <label for="message">Mensaje:</label>
+    <textarea name="message" rows="4" required></textarea>
+    <br>
+    <input type="submit" value="Publicar">
+</form>
+
+<!-- Mostrar mensajes del foro -->
+<div class="message-container">
+    <h2>Mensajes:</h2>
+    <?php include('show_messages.php'); ?>
+</div>
+
+</body>
+</html>
